@@ -22,7 +22,9 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         viewModel = (activity as NewsActivity).viewModel
 
         val article = args.article
+        showProgressBar()
         webView.apply {
+            hideProgressBar()
             webViewClient = WebViewClient()
             article.url?.let { loadUrl(it) }
         }
@@ -32,5 +34,13 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
             Snackbar.make(view, "Article saved successfully",Snackbar.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun showProgressBar(){
+        art_progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar(){
+        art_progressBar.visibility = View.INVISIBLE
     }
 }

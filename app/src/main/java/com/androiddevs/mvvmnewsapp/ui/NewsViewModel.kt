@@ -38,7 +38,6 @@ class NewsViewModel(
     //launching coroutine for response
     fun getBreakingNews(countryCode:String) = viewModelScope.launch {
         handleSafeBreakingNewsCalls(countryCode)
-
     }
 
     //launching coroutine to response on working thread
